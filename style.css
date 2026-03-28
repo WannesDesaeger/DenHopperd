@@ -50,7 +50,7 @@ nav a::after {
   bottom: -6px;
   width: 0;
   height: 2px;
-  background: #c89b3c; /* warm accent */
+  background: #c89b3c;
   transition: width 0.3s ease;
 }
 
@@ -121,7 +121,7 @@ section {
   align-items: center;
 }
 
-.tekst-grid img{
+.tekst-grid img {
   width: 100%;
 }
 
@@ -180,24 +180,70 @@ footer {
   margin-bottom: -10px;
 }
 
-.bier-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+/* ========================= */
+/* NIEUWE BIER LAYOUT */
+/* ========================= */
+
+.bier-lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-.bier-card {
+.bier-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.5rem;
+  align-items: start;
   background: #f8f8f8;
   padding: 1.5rem;
   border-radius: 10px;
-  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.bier-card img {
-  width: 40%;
+.bier-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.bier-item img {
+  width: 100%;
+  max-width: 100px;
   border-radius: 8px;
+}
+
+.bier-info {
+  text-align: left;
+}
+
+.bier-info h3 {
+  margin-bottom: 0.3rem;
+}
+
+.bier-meta {
+  font-size: 0.9rem;
+  color: #777;
   margin-bottom: 1rem;
 }
+
+.bier-blokken {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bier-blokken p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.bier-extra {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* ========================= */
 
 .tekst-grid-reverse {
   display: grid;
@@ -206,7 +252,6 @@ footer {
   align-items: center;
 }
 
-
 .tekst-grid-reverse img.gevel-img {
   width: 80%;
   grid-area: image;
@@ -214,10 +259,9 @@ footer {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.tekst-grid-reverse .tekst{
+.tekst-grid-reverse .tekst {
   grid-area: tekst;
 }
-
 
 .tekst-grid img.brouwerij-img {
   width: 100%;
@@ -230,7 +274,7 @@ footer {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.bart{
+.bart {
   width: 60%;
   display: block;
   margin: 0 auto;
@@ -251,18 +295,14 @@ footer {
 }
 
 .age-gate {
-  display: none; 
+  display: none;
   position: fixed;
   inset: 0;
-
-  background: rgba(0, 0, 0, 0.6); /* semi transparant */
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari */
-
-  display: none;
+  -webkit-backdrop-filter: blur(8px);
   justify-content: center;
   align-items: center;
-
   z-index: 9999;
 }
 
@@ -277,93 +317,31 @@ footer {
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
-.age-box h2 {
-  margin-bottom: 15px;
-}
-
-.age-box p {
-  margin-bottom: 25px;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
 .age-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
 
-.age-buttons button {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-  font-weight: bold;
+.bier-card {
+  display: grid;
+  grid-template-columns: 140px 1fr; /* GROTER beeld */
+  gap: 20px;
+  align-items: start;
 }
 
-#age-yes {
-  background: #c59d5f;
-  color: white;
+.bier-card img {
+  width: 140px;
+  height: auto;
+  border-radius: 10px;
 }
 
-#age-no {
-  background: #333;
-  color: white;
-}
-
-.age-hidden {
-  display: none;
-}
-
-.privacy-container {
-    max-width: 850px;
-    margin: 60px auto;
-    padding: 0 20px;
-    line-height: 1.7;
-}
-
-/* Datum bovenaan */
-.privacy-container .last-updated {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 30px;
-}
-
-/* Hoofdtitels */
-.privacy-container h1,
-.privacy-container h2 {
-    margin-top: 50px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-/* Eerste titel iets minder afstand */
-.privacy-container h1:first-of-type {
-    margin-top: 0;
-}
-
-/* Bedrijfsgegevens blok */
-.company-info {
-    margin-bottom: 35px;
-    line-height: 1.8;
-}
-
-/* Opsomming */
-.privacy-container ul {
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-.privacy-container li {
-    margin-bottom: 8px;
-}
-
-/* Paragrafen */
-.privacy-container p {
-    margin-bottom: 15px;
-}
+/* ========================= */
+/* MOBILE */
+/* ========================= */
 
 @media (max-width: 768px) {
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -372,30 +350,23 @@ footer {
     font-size: 2rem;
   }
 
-  .bier-grid {
-  grid-template-columns: 1fr;
-  }
-
-  .tekst-grid-reverse {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "tekst"
-      "image";
-  }
-
+  .tekst-grid-reverse,
   .tekst-grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "tekst"
-      "image";
   }
 
+  .bier-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-  .tekst-grid-reverse img.gevel-img{
-    width: 50%;
+  .bier-item img {
     margin: 0 auto;
-    display: block;
-    margin-top: 10px;
+  }
+
+  .bier-blokken {
+    grid-template-columns: 1fr;
+    text-align: left;
   }
 
   .hamburger {
@@ -403,19 +374,16 @@ footer {
   }
 
   nav {
-    position: fixed;       /* ← niet meer absolute */
-    top: 90px;             /* hoogte van je header */
+    position: fixed;
+    top: 90px;
     left: 0;
     width: 100%;
     background: #0f0f0f;
-    display: flex;
     flex-direction: column;
     text-align: center;
-
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    z-index: 999;
   }
 
   nav.active {
