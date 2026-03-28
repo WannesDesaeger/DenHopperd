@@ -59,7 +59,7 @@ nav a:hover::after {
 }
 
 .hero {
-  background: url("images/toog.jpg") center/cover no-repeat;
+  background: url("Images/toog.jpg") center/cover no-repeat;
   height: 80vh;
   display: flex;
   align-items: center;
